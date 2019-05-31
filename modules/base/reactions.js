@@ -61,7 +61,7 @@ reactions.run = (MAIN, event) => {
                   let gym = JSON.parse(record[0].embed);
                   let boss_name = gym.boss;
                   if (boss_name == 'Egg') {
-                    boss_name += 'Level'+gym.level+'_'+boss_name;
+                    boss_name = 'Level'+gym.level+'_'+boss_name;
                   }
                   let channel_name = boss_name+'_'+record[0].gym_name
 
