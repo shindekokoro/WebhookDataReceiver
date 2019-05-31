@@ -83,7 +83,7 @@ reactions.run = (MAIN, event) => {
                     gym.hatch_mins = Math.floor((gym.start-(time_now/1000))/60);
                     gym.end_mins = Math.floor((gym.end-(time_now/1000))/60);
 
-                    if (boss_name == gym.boss) {
+                    if (gym.boss == 'Egg') {
                       channel_embed = Embed_EggConfig(gym);
                       channel_embed.setFooter(gym.id);
                     } else {
@@ -147,7 +147,7 @@ reactions.startInterval = async (MAIN) => {
           gym.hatch_mins = Math.floor((gym.start-(time_now/1000))/60);
           gym.end_mins = Math.floor((gym.end-(time_now/1000))/60);
 
-          if (boss_name == gym.boss) {
+          if (gym.boss == 'Egg') {
             channel_embed = Embed_EggConfig(gym);
             channel_embed.setFooter(gym.id);
           } else {
