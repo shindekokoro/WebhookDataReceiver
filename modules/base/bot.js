@@ -488,7 +488,7 @@ MAIN.Get_Icon = (object, quest_reward) => {
 }
 
 // Get Size of Pokemon BIG Karp/Tiny Rat
-MAIN.Get_Size = (pokemon_id, pokemon_height, pokemon_weight, form_id) => {
+MAIN.Get_Size = (pokemon_id, form_id, pokemon_height, pokemon_weight) => {
         let weightRatio = 0, heightRatio = 0;
         if (form_id > 0 && !MAIN.masterfile.pokemon[pokemon_id].weight){
           weightRatio = pokemon_weight / MAIN.masterfile.pokemon[pokemon_id].forms[form_id].weight;

@@ -81,7 +81,7 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
     // DETERMINE HEIGHT, WEIGHT AND SIZE
     pokemon.height = Math.floor(sighting.height*100)/100;
     pokemon.weight = Math.floor(sighting.weight*100)/100;
-    pokemon.size = MAIN.Get_Size(sighting.pokemon_id, sighting.height, sighting.weight);
+    pokemon.size = MAIN.Get_Size(sighting.pokemon_id, sighting.form, sighting.height, sighting.weight);
 
     pokemon.attack = sighting.individual_attack;
     pokemon.defense = sighting.individual_defense;
