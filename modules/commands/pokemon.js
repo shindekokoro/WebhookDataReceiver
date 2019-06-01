@@ -13,7 +13,7 @@ module.exports.run = async (MAIN, message, prefix, discord) => {
   let requestAction = new Discord.RichEmbed()
     .setAuthor(nickname, message.member.user.displayAvatarURL)
     .setTitle('What would you like to do with your Pokémon Subscriptions?')
-    .setDescription('`view`  »  View your Subscritions.\n'
+    .setDescription('`view`  »  View your Subscriptions.\n'
                    +'`add`  »  Create a Simple Subscription.\n'
                    +'`add adv`  »  Create an Advanced Subscription.\n'
                    +'`remove`  »  Remove a pokemon Subscription.\n'
