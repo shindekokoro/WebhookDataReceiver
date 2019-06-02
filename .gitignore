@@ -29,11 +29,6 @@ config/*.json
 config/config.ini.ex
 feeds/*.txt
 node_modules
-static/moves.json
-static/en.json
-static/pokemon.json
-static/rewards.json
-static/types.json
 *.DS_Store
 filters/*.DS_Store
 geofences/*.DS_Store
