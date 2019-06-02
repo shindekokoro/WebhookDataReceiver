@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const pvp = require('../base/pvp.js');
 
 module.exports.run = async (MAIN, message, pokemon_id, form_id, server) => {
       // CHECK IF THE TARGET IS A USER
@@ -120,10 +121,10 @@ module.exports.run = async (MAIN, message, pokemon_id, form_id, server) => {
              +', **Def**: '+defense
              +', **Sta**: '+stamina,true)
       .addField('__Max CPs__',
-                '**Level 40**: '+MAIN.CalculateCP(pokemon_id,form_id,15,15,15,40)
-               +' | **Level 25**: '+MAIN.CalculateCP(pokemon_id,form_id,15,15,15,25)
-               +'\n**Level 20**: '+MAIN.CalculateCP(pokemon_id,form_id,15,15,15,20)
-               +' | **Level 15**: '+MAIN.CalculateCP(pokemon_id,form_id,15,15,15,15));
+                '**Level 40**: '+pvp.CalculateCP(MAIN,pokemon_id,form_id,15,15,15,40)
+               +' | **Level 25**: '+pvp.CalculateCP(MAIN,pokemon_id,form_id,15,15,15,25)
+               +'\n**Level 20**: '+pvp.CalculateCP(MAIN,pokemon_id,form_id,15,15,15,20)
+               +' | **Level 15**: '+pvp.CalculateCP(MAIN,pokemon_id,form_id,15,15,15,15));
 
       if(server.spam_channels.indexOf(message.channel.id) >= 0){
         return MAIN.Send_Embed('dex', 0, server, role_id, dex_embed, message.channel.id);

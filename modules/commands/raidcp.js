@@ -2,6 +2,7 @@ const GeoTz = require('geo-tz');
 const Discord = require('discord.js');
 const Send_Nest = require('../embeds/nests.js');
 const InsideGeojson = require('point-in-geopolygon');
+const pvp = require('../base/pvp.js');
 
 module.exports.run = async (MAIN, message, prefix, discord) => {
 
@@ -44,7 +45,7 @@ async function pokemon_view(MAIN, message, nickname, pokemon, prefix, discord){
     for(var def = 15; def >= 13; def--) {
       for(var sta = 15; sta >= 13; sta--) {
         iv_percent = Math.round((atk + def + sta) / 45 * 100);
-        result_string += atk+','+def+','+sta+' '+MAIN.CalculateCP(pokemon_id,form_id,atk,def,sta,level)+' CP '+iv_percent+'%\n';
+        result_string += atk+','+def+','+sta+' '+pvp.CalculateCP(MAIN,pokemon_id,form_id,atk,def,sta,level)+' CP '+iv_percent+'%\n';
       }
     }
   }
@@ -149,10 +150,9 @@ async function initiate_collector(MAIN, source, message, msg, nickname, prefix, 
       case 'cancel': resolve('cancel'); break;
       case 'time': if(source == 'start'){
         message.reply('Your subscription has timed out.').then(m => m.delete(5000)).catch(console.error);
-      }
+      } break;
       case 'retry':
        message.reply('Please check your spelling, and retry.').then(m => m.delete(5000)).catch(console.error);
-       break;
       break;
       default:
         pokemon_view(MAIN, message, nickname, reason, prefix, discord);

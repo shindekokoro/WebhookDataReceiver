@@ -7,6 +7,7 @@ module.exports.run = async (MAIN, message, nest, server, embed_area, timezone, e
   let guild = MAIN.guilds.get(message.guild.id);
   let member = MAIN.guilds.get(server.id).members.get(message.author.id);
   let pokemon = {type: '', color: '', form: '', area: embed_area}, role_id = '';
+  pokemon.lat = nest.lat, pokemon.lon = nest.lon;
 
   // DETERMINE POKEMON NAME AND FORM
   pokemon.name = MAIN.masterfile.pokemon[nest.pokemon_id].name;
@@ -22,10 +23,18 @@ module.exports.run = async (MAIN, message, nest, server, embed_area, timezone, e
   pokemon.avg = nest.pokemon_avg;
 
   // GET POKEMON TYPE(S), EMOTE AND COLOR
-  MAIN.masterfile.pokemon[nest.pokemon_id].types.forEach((type) => {
-    pokemon.type += MAIN.emotes[type.toLowerCase()]+' '+type+' / ';
-    pokemon.color = MAIN.Get_Color(type, pokemon.color);
-  }); pokemon.type = pokemon.type.slice(0,-3);
+  if(MAIN.masterfile.pokemon[nest.pokemon_id].types){
+    MAIN.masterfile.pokemon[nest.pokemon_id].types.forEach((type) => {
+      pokemon.type += MAIN.emotes[type.toLowerCase()]+' '+type+' / ';
+      pokemon.color = MAIN.Get_Color(type, pokemon.color);
+    }); pokemon.type = pokemon.type.slice(0,-3);
+  } else {
+    form = MAIN.masterfile.pokemon[nest.pokemon_id].default_form;
+    MAIN.masterfile.pokemon[nest.pokemon_id].forms[form].types.forEach((type) => {
+      pokemon.type += MAIN.emotes[type.toLowerCase()]+' '+type+' / ';
+      pokemon.color = MAIN.Get_Color(type, pokemon.color);
+    }); pokemon.type = pokemon.type.slice(0,-3);
+  }
 
   // GET SPRITE IMAGE
   pokemon.sprite = await MAIN.Get_Sprite(form, nest.pokemon_id);

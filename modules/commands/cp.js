@@ -2,6 +2,7 @@ const GeoTz = require('geo-tz');
 const Discord = require('discord.js');
 const Send_Nest = require('../embeds/nests.js');
 const InsideGeojson = require('point-in-geopolygon');
+const pvp = require('../base/pvp.js');
 
 module.exports.run = async (MAIN, message, prefix, discord) => {
 
@@ -37,7 +38,7 @@ async function pokemon_view(MAIN, message, nickname, pokemon_w_form, prefix, dis
 
   let search_string = pokemon_id+'&', role_id = '';
   for(var level = 1; level <= 40; level++) {
-    search_string += 'cp'+MAIN.CalculateCP(pokemon_id,form_id,15,15,15,level)+',';
+    search_string += 'cp'+pvp.CalculateCP(MAIN,pokemon_id,form_id,15,15,15,level)+',';
   }
   search_string = search_string.slice(0,-1);
   if(discord.spam_channels.indexOf(message.channel.id) >= 0){
@@ -107,12 +108,10 @@ async function initiate_collector(MAIN, source, message, msg, nickname, prefix, 
       case 'cancel': break;
       case 'time': if(source == 'start'){
         message.reply('Your subscription has timed out.').then(m => m.delete(5000)).catch(console.error);
-      }
+      } break;
       case 'retry':
        message.reply('Please check your spelling, and retry.').then(m => m.delete(5000)).catch(console.error);
-       let cmd = MAIN.Commands.get('cp');
-       if(cmd){ return cmd.run(MAIN, message, prefix, discord); }
-      break;
+       break;
       default:
         pokemon_view(MAIN, message, nickname, reason, prefix, discord);
     } return;

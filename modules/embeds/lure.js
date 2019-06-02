@@ -12,7 +12,7 @@ module.exports.run = async (MAIN, target, lure, type, main_area, sub_area, embed
 
   // GET STATIC MAP TILE
   if(MAIN.config.Map_Tiles == 'ENABLED'){
-    pokestop.map_img = await MAIN.Static_Map_Tile(lure.latitude, lure.longitude, 'raid');
+    pokestop.map_img = await MAIN.Static_Map_Tile(lure.latitude, lure.longitude, 'quest');
   }
 
   // DETERMINE STOP NAME

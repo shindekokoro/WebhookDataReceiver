@@ -84,11 +84,9 @@ async function initiate_collector(MAIN, source, message, msg, nickname, prefix, 
       case 'cancel': break;
       case 'time': if(source == 'start'){
         message.reply('Your subscription has timed out.').then(m => m.delete(5000)).catch(console.error);
-      }
+      } break;
       case 'retry':
        message.reply('Please check your spelling, and retry.').then(m => m.delete(5000)).catch(console.error);
-       let cmd = MAIN.Commands.get('stats');
-       if(cmd){ return cmd.run(MAIN, message, prefix, discord); }
       break;
       default:
         pokemon_view(MAIN, message, nickname, reason, prefix, discord);
