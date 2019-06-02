@@ -1,14 +1,21 @@
 {
 	"Type": "pokemon",
+
 	"Post_Without_IV": false,
+
 	"min_iv": 50,
 	"max_iv": 99,
+
 	"min_level": 0,
 	"max_level": 35,
+
 	"min_cp": 0,
 	"max_cp": 10000,
+
 	"gender": "All",
-        "size": "All",
+
+	"size": "All",
+
 	"Bulbasaur": "True",
 	"Ivysaur": "True",
 	"Venusaur": "True",

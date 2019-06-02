@@ -1,19 +1,28 @@
 {
 	"Type": "pokemon",
+
 	"Post_Without_IV": false,
+
 	"min_iv": 0,
 	"max_iv": 100,
+
 	"min_level": 0,
 	"max_level": 35,
+
 	"min_cp": 0,
 	"max_cp": 10000,
+
 	"min_cp_range": 2490,
 	"max_cp_range": 2500,
+
 	"min_pvp_percent": 90,
 	"min_pvp_rank": 500,
+
 	"gender": "all",
+
 	"size": "all",
-  	"Bulbasaur": "True",
+
+	"Bulbasaur": "True",
 	"Ivysaur": "True",
 	"Venusaur": "True",
 	"Charmander": "True",
