@@ -25,7 +25,7 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
   if(raid.ex_raid_eligible == true){ raid_sponsor = ' | '+MAIN.emotes.exPass+' Eligible'; }
 
   // CHECK IF EXCLUSIVE RAID
-  if(raid.is_exclusive == true){ gmy.is_exclusive = '**EXRaid Invite Only** '; }
+  if(raid.is_exclusive == true){ gym.is_exclusive = '**EXRaid Invite Only** '; }
 
   // DETERMINE GYM CONTROL
   switch(raid.team_id){
