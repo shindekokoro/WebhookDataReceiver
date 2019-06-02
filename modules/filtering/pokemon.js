@@ -47,7 +47,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
       if(filter.gender != gender && filter.gender != 'all') { return; }
 
       // Determine Size
-      size = MAIN.Get_Size(sighting.pokemon_id, sighting.height, sighting.weight);
+      size = MAIN.Get_Size(sighting.pokemon_id, sighting.form, sighting.height, sighting.weight);
       if (!filter.size) { filter.size = 'all'; }
       if (filter.size.toLowerCase() == 'all') { size = 'all'; }
 
